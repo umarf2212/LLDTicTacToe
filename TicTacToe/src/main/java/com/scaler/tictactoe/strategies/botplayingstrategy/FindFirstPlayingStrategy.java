@@ -1,10 +1,10 @@
-package strategies.botplayingstrategy;
+package com.scaler.tictactoe.strategies.botplayingstrategy;
 
-import models.Board;
-import models.Cell;
-import models.CellState;
-import models.Move;
-import models.Player;
+import com.scaler.tictactoe.models.Board;
+import com.scaler.tictactoe.models.Cell;
+import com.scaler.tictactoe.models.CellState;
+import com.scaler.tictactoe.models.Move;
+import com.scaler.tictactoe.models.Player;
 
 public class FindFirstPlayingStrategy implements BotPlayingStrategy {
     @Override

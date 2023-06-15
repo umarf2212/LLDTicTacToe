@@ -1,10 +1,10 @@
-package controllers;
-
-import models.Game;
-import models.GameStatus;
-import models.Player;
+package com.scaler.tictactoe.controllers;
 
 import java.util.List;
+
+import com.scaler.tictactoe.models.Game;
+import com.scaler.tictactoe.models.GameStatus;
+import com.scaler.tictactoe.models.Player;
 
 public class GameController {
     

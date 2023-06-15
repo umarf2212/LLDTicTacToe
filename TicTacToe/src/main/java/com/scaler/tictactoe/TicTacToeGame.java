@@ -1,5 +1,7 @@
-import controllers.GameController;
-import models.*;
+package com.scaler.tictactoe;
+
+import com.scaler.tictactoe.controllers.GameController;
+import com.scaler.tictactoe.models.*;
 
 import java.util.ArrayList;
 import java.util.List;

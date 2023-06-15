@@ -1,7 +1,7 @@
-package models;
+package com.scaler.tictactoe.models;
 
-import factories.BotPlayingStrategyFactory;
-import strategies.botplayingstrategy.BotPlayingStrategy;
+import com.scaler.tictactoe.factories.BotPlayingStrategyFactory;
+import com.scaler.tictactoe.strategies.botplayingstrategy.BotPlayingStrategy;
 
 public class Bot extends Player {
     private BotDifficultyLevel botDifficultyLevel;

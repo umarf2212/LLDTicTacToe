@@ -1,4 +1,4 @@
-package models;
+package com.scaler.tictactoe.models;
 
 public class Cell {
     private Player player;

@@ -1,8 +1,8 @@
-package strategies.botplayingstrategy;
+package com.scaler.tictactoe.strategies.botplayingstrategy;
 
-import models.Board;
-import models.Move;
-import models.Player;
+import com.scaler.tictactoe.models.Board;
+import com.scaler.tictactoe.models.Move;
+import com.scaler.tictactoe.models.Player;
 
 public interface BotPlayingStrategy {
     Move decideMove(Player player, Board board);

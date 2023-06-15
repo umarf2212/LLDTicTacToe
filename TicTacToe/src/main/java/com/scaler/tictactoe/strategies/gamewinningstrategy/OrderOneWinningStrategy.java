@@ -1,12 +1,12 @@
-package strategies.gamewinningstrategy;
-
-import models.Board;
-import models.Player;
-import models.Cell;
+package com.scaler.tictactoe.strategies.gamewinningstrategy;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import com.scaler.tictactoe.models.Board;
+import com.scaler.tictactoe.models.Cell;
+import com.scaler.tictactoe.models.Player;
 
 public class OrderOneWinningStrategy implements GameWinningStrategy {
 

@@ -1,11 +1,11 @@
-package models;
-
-import exceptions.InvalidGameConstructorException;
-import strategies.gamewinningstrategy.GameWinningStrategy;
-import strategies.gamewinningstrategy.OrderOneWinningStrategy;
+package com.scaler.tictactoe.models;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.scaler.tictactoe.exceptions.InvalidGameConstructorException;
+import com.scaler.tictactoe.strategies.gamewinningstrategy.GameWinningStrategy;
+import com.scaler.tictactoe.strategies.gamewinningstrategy.OrderOneWinningStrategy;
 
 public class Game {
     private Board board;
