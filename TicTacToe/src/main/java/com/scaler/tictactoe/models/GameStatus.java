@@ -1,7 +1,7 @@
-package com.scaler.tictactoe.models;
+package models;
 
 public enum GameStatus {
     DRAW,
-    ENDED,
-    IN_PROGRESS,
+    ENDED, 
+    IN_PROGRESS
 }

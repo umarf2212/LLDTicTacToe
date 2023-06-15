@@ -1,4 +1,4 @@
-package com.scaler.tictactoe.models;
+package models;
 
 public enum PlayerType {
     HUMAN,

@@ -1,4 +1,4 @@
-package com.scaler.tictactoe.models;
+package models;
 
 public class Move {
     private Player player;
@@ -12,7 +12,6 @@ public class Move {
     public Player getPlayer() {
         return player;
     }
-
     public void setPlayer(Player player) {
         this.player = player;
     }
@@ -20,7 +19,6 @@ public class Move {
     public Cell getCell() {
         return cell;
     }
-
     public void setCell(Cell cell) {
         this.cell = cell;
     }

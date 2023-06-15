@@ -1,4 +1,4 @@
-package com.scaler.tictactoe.models;
+package models;
 
 import java.util.Scanner;
 
@@ -13,11 +13,9 @@ public class Player {
         this.type = playerType;
     }
 
-
     public char getSymbol() {
         return symbol;
     }
-
     public void setSymbol(char symbol) {
         this.symbol = symbol;
     }
@@ -25,7 +23,6 @@ public class Player {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -33,18 +30,17 @@ public class Player {
     public PlayerType getType() {
         return type;
     }
-
     public void setType(PlayerType type) {
         this.type = type;
     }
 
     public Move makeMove(Board board) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Which row you want move on");
+        System.out.println("Which row you want to move on?");
         int row = scanner.nextInt();
-        System.out.println("Which column you want move on");
-        int column = scanner.nextInt();
-        return new Move(this, new Cell(row, column));
+        System.out.println("Which column you want to move on?");
+        int col = scanner.nextInt();
+        scanner.close();
+        return new Move(this, new Cell(row, col));
     }
-
 }

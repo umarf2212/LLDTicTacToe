@@ -1,8 +1,8 @@
-package com.scaler.tictactoe.models;
+package models;
 
-import com.scaler.tictactoe.exceptions.InvalidGameConstructorExcpetion;
-import com.scaler.tictactoe.strategies.gamewinningstrategy.GameWinningStrategy;
-import com.scaler.tictactoe.strategies.gamewinningstrategy.OrderOneGameWiningStrategy;
+import exceptions.InvalidGameConstructorException;
+import strategies.gamewinningstrategy.GameWinningStrategy;
+import strategies.gamewinningstrategy.OrderOneWinningStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,6 @@ public class Game {
     public Player getWinner() {
         return winner;
     }
-
     public void setWinner(Player winner) {
         this.winner = winner;
     }
@@ -27,13 +26,11 @@ public class Game {
     public GameWinningStrategy getGameWinningStrategy() {
         return gameWinningStrategy;
     }
-
     public void setGameWinningStrategy(GameWinningStrategy gameWinningStrategy) {
         this.gameWinningStrategy = gameWinningStrategy;
     }
 
-    private Game() {
-    }
+    private Game() {}
 
     public static Builder getBuilder() {
         return new Builder();
@@ -41,18 +38,15 @@ public class Game {
 
     public void undo() {}
 
-    public void makeNextMove() {
+    public void makeNextMove() {}
 
-    }
-
-    public void displayBoard() {
+    public void displayBoard(){
         this.board.display();
     }
 
     public Board getBoard() {
         return board;
     }
-
     public void setBoard(Board board) {
         this.board = board;
     }
@@ -60,7 +54,6 @@ public class Game {
     public List<Player> getPlayers() {
         return players;
     }
-
     public void setPlayers(List<Player> players) {
         this.players = players;
     }
@@ -68,7 +61,6 @@ public class Game {
     public List<Move> getMoves() {
         return moves;
     }
-
     public void setMoves(List<Move> moves) {
         this.moves = moves;
     }
@@ -76,7 +68,6 @@ public class Game {
     public GameStatus getGameStatus() {
         return gameStatus;
     }
-
     public void setGameStatus(GameStatus gameStatus) {
         this.gameStatus = gameStatus;
     }
@@ -84,14 +75,13 @@ public class Game {
     public int getNextPlayerIndex() {
         return nextPlayerIndex;
     }
-
     public void setNextPlayerIndex(int nextPlayerIndex) {
         this.nextPlayerIndex = nextPlayerIndex;
     }
 
     public void executeNextMove() {
         Player toMovePlayer = players.get(nextPlayerIndex);
-        System.out.println("Player " + toMovePlayer.getName() + " to move");
+        System.out.println("Player "+toMovePlayer.getName()+" to move");
 
         Move move = toMovePlayer.makeMove(this.board);
 
@@ -103,9 +93,9 @@ public class Game {
 
         this.moves.add(move);
 
-        if(gameWinningStrategy.checkWinner(board, players.get(nextPlayerIndex), move.getCell())) {
+        if (gameWinningStrategy.checkWinner(board, toMovePlayer, move.getCell())) {
             this.gameStatus = GameStatus.ENDED;
-            this.winner = players.get(nextPlayerIndex);
+            this.winner = toMovePlayer;
         }
 
         nextPlayerIndex = (nextPlayerIndex + 1) % players.size();
@@ -126,20 +116,21 @@ public class Game {
         }
 
         public boolean valid() throws Exception {
-            if(this.boardSize < 3) {
-                throw new InvalidGameConstructorExcpetion("Dimensions of board should be greater than 3");
-            } else if(this.players.size() < 2) {
-                throw new InvalidGameConstructorExcpetion("Players should be more than 2");
+            if (this.boardSize < 3) {
+                throw new InvalidGameConstructorException("Board size should be at least 3x3");
+            }
+            else if (this.players.size() < 2) {
+                throw new InvalidGameConstructorException("Players should be atleast 2");
             }
             return true;
         }
 
         public Game build() throws Exception {
-
-            try{
+            try {
                 valid();
-            } catch (Exception e) {
-                throw new InvalidGameConstructorExcpetion(e.getMessage());
+            }
+            catch (Exception e) {
+                throw new InvalidGameConstructorException(e.getMessage());
             }
 
             Game game = new Game();
@@ -148,8 +139,10 @@ public class Game {
             game.setMoves(new ArrayList<>());
             game.setNextPlayerIndex(0);
             game.setGameStatus(GameStatus.IN_PROGRESS);
-            game.setGameWinningStrategy(new OrderOneGameWiningStrategy(boardSize));
+            game.setGameWinningStrategy(new OrderOneWinningStrategy(boardSize));
             return game;
+
         }
     }
+
 }

@@ -1,6 +1,6 @@
-package com.scaler.tictactoe.models;
+package models;
 
 public enum CellState {
     EMPTY,
-    FILLED,
+    FILLED
 }

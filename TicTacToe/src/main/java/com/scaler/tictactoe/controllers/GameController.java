@@ -1,12 +1,13 @@
-package com.scaler.tictactoe.controllers;
+package controllers;
 
-import com.scaler.tictactoe.models.Game;
-import com.scaler.tictactoe.models.GameStatus;
-import com.scaler.tictactoe.models.Player;
+import models.Game;
+import models.GameStatus;
+import models.Player;
 
 import java.util.List;
 
 public class GameController {
+    
     public Game createGame(int BoardSize, List<Player> players) {
         return null;
     }
@@ -19,8 +20,7 @@ public class GameController {
         game.displayBoard();
     }
 
-    public void undo(Game game) {
-    }
+    public void undo(Game game) {}
 
     public void executeNextMove(Game game) {
         game.executeNextMove();
@@ -29,4 +29,5 @@ public class GameController {
     public Player getWinner(Game game) {
         return game.getWinner();
     }
+
 }

@@ -1,4 +1,4 @@
-package com.scaler.tictactoe.models;
+package models;
 
 public class Cell {
     private Player player;
@@ -23,7 +23,6 @@ public class Cell {
     public int getRow() {
         return row;
     }
-
     public void setRow(int row) {
         this.row = row;
     }
@@ -31,7 +30,6 @@ public class Cell {
     public int getCol() {
         return col;
     }
-
     public void setCol(int col) {
         this.col = col;
     }

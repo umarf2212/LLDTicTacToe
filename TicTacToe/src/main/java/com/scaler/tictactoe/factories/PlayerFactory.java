@@ -1,4 +1,5 @@
-package com.scaler.tictactoe.factories;
+package factories;
 
 public class PlayerFactory {
+    
 }

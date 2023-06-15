@@ -1,7 +1,7 @@
-package com.scaler.tictactoe.models;
+package models;
 
-import com.scaler.tictactoe.factories.BotPlayingStrategyFactory;
-import com.scaler.tictactoe.strategies.botplayingstrategy.BotPlayingStrategy;
+import factories.BotPlayingStrategyFactory;
+import strategies.botplayingstrategy.BotPlayingStrategy;
 
 public class Bot extends Player {
     private BotDifficultyLevel botDifficultyLevel;
@@ -9,16 +9,14 @@ public class Bot extends Player {
 
     public Bot(String name, char symbol, BotDifficultyLevel botDifficultyLevel) {
         super(name, symbol, PlayerType.BOT);
-        this.botPlayingStrategy = BotPlayingStrategyFactory
-            .getBotPlayingStrategyByDiffcultyLevel(botDifficultyLevel);
+
+        this.botPlayingStrategy = BotPlayingStrategyFactory.getBotPlayingStrategyByDifficultyLevel(botDifficultyLevel);
         this.botDifficultyLevel = botDifficultyLevel;
     }
-
 
     public BotDifficultyLevel getBotDifficultyLevel() {
         return botDifficultyLevel;
     }
-
     public void setBotDifficultyLevel(BotDifficultyLevel botDifficultyLevel) {
         this.botDifficultyLevel = botDifficultyLevel;
     }
@@ -27,4 +25,5 @@ public class Bot extends Player {
     public Move makeMove(Board board) {
         return botPlayingStrategy.decideMove(this, board);
     }
+
 }

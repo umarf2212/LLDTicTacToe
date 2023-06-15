@@ -1,12 +1,12 @@
-package com.scaler.tictactoe.factories;
+package factories;
 
-import com.scaler.tictactoe.models.BotDifficultyLevel;
-import com.scaler.tictactoe.strategies.botplayingstrategy.BotPlayingStrategy;
-import com.scaler.tictactoe.strategies.botplayingstrategy.FindFirstPlayingStrategy;
+import models.BotDifficultyLevel;
+import strategies.botplayingstrategy.BotPlayingStrategy;
+import strategies.botplayingstrategy.FindFirstPlayingStrategy;
 
 public class BotPlayingStrategyFactory {
 
-    public static BotPlayingStrategy getBotPlayingStrategyByDiffcultyLevel(BotDifficultyLevel botDifficultyLevel) {
+    public static BotPlayingStrategy getBotPlayingStrategyByDifficultyLevel(BotDifficultyLevel botDifficultyLevel) {
         return new FindFirstPlayingStrategy();
     }
 

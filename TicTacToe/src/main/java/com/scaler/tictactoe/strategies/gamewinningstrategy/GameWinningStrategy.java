@@ -1,11 +1,9 @@
-package com.scaler.tictactoe.strategies.gamewinningstrategy;
+package strategies.gamewinningstrategy;
 
-import com.scaler.tictactoe.models.Board;
-import com.scaler.tictactoe.models.Cell;
-import com.scaler.tictactoe.models.Player;
+import models.Board;
+import models.Player;
+import models.Cell;
 
 public interface GameWinningStrategy {
-    boolean checkWinner(Board board,
-                               Player lastMovePlayer,
-                               Cell moveCell);
+    boolean checkWinner(Board board, Player lastMovePlayer, Cell moveCell);
 }

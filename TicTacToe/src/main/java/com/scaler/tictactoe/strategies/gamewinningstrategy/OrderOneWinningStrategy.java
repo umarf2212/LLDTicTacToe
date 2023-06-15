@@ -1,21 +1,22 @@
-package com.scaler.tictactoe.strategies.gamewinningstrategy;
+package strategies.gamewinningstrategy;
 
-import com.scaler.tictactoe.models.Board;
-import com.scaler.tictactoe.models.Cell;
-import com.scaler.tictactoe.models.Player;
+import models.Board;
+import models.Player;
+import models.Cell;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class OrderOneGameWiningStrategy implements GameWinningStrategy {
-    private List<HashMap<Character, Integer>> rowSymbolCounts = new ArrayList<>();
-    private List<HashMap<Character, Integer>> colSymbolCounts = new ArrayList<>();
+public class OrderOneWinningStrategy implements GameWinningStrategy {
+
+    private List<HashMap<Character, Integer>> rowSymbolCounts = new ArrayList<>(null);
+    private List<HashMap<Character, Integer>> colSymbolCounts = new ArrayList<>(null);
     private HashMap<Character, Integer> topLeftDiagSymbolCounts = new HashMap<>();
     private HashMap<Character, Integer> topRightDiagSymbolCounts = new HashMap<>();
 
-    public OrderOneGameWiningStrategy(int boardSize) {
-        for(int i=0; i<boardSize; i++) {
+    public OrderOneWinningStrategy(int boardSize) {
+        for (int i=0; i<boardSize; i++) {
             rowSymbolCounts.add(new HashMap<>());
             colSymbolCounts.add(new HashMap<>());
         }
@@ -26,7 +27,7 @@ public class OrderOneGameWiningStrategy implements GameWinningStrategy {
     }
 
     public boolean isCellOnTopRightDiag(int row, int col, int dimension) {
-        return row + col == dimension - 1;
+        return row+col == dimension - 1;
     }
 
     @Override
@@ -39,7 +40,6 @@ public class OrderOneGameWiningStrategy implements GameWinningStrategy {
         if (!rowSymbolCounts.get(row).containsKey(symbol)) {
             rowSymbolCounts.get(row).put(symbol, 0);
         }
-
         rowSymbolCounts.get(row).put(
             symbol,
             rowSymbolCounts.get(row).get(symbol) + 1
@@ -48,12 +48,12 @@ public class OrderOneGameWiningStrategy implements GameWinningStrategy {
         if (!colSymbolCounts.get(col).containsKey(symbol)) {
             colSymbolCounts.get(col).put(symbol, 0);
         }
-
         colSymbolCounts.get(col).put(
             symbol,
             colSymbolCounts.get(col).get(symbol) + 1
         );
 
+        
         if (isCellOnTopLeftDiag(row, col)) {
             if (!topLeftDiagSymbolCounts.containsKey(symbol)) {
                 topLeftDiagSymbolCounts.put(symbol, 0);
@@ -65,29 +65,30 @@ public class OrderOneGameWiningStrategy implements GameWinningStrategy {
             );
         }
 
-        if (isCellOnTopRightDiag(row, col, board.getBoard().size())) {
+        if (isCellOnTopRightDiag(row, col, dimension)) {
             if (!topRightDiagSymbolCounts.containsKey(symbol)) {
                 topRightDiagSymbolCounts.put(symbol, 0);
             }
-
+            
             topRightDiagSymbolCounts.put(
                 symbol,
                 topRightDiagSymbolCounts.get(symbol) + 1
             );
         }
 
-        if (
-            rowSymbolCounts.get(row).get(symbol) == dimension ||
-                colSymbolCounts.get(col).get(symbol) == dimension
-        ) {
+        if (rowSymbolCounts.get(row).get(symbol) == dimension || 
+            colSymbolCounts.get(col).get(symbol) == dimension) {
+                return true;
+        }
+
+        if (isCellOnTopLeftDiag(row, col) && topLeftDiagSymbolCounts.get(symbol) == dimension) {
             return true;
         }
 
-        if (isCellOnTopRightDiag(row, col, dimension) && topRightDiagSymbolCounts.get(symbol) == dimension) return true;
-
-        if (isCellOnTopLeftDiag(row, col) && topLeftDiagSymbolCounts.get(symbol) == dimension) return true;
-
+        if (isCellOnTopRightDiag(row, col, dimension) && topRightDiagSymbolCounts.get(symbol) == dimension) {
+            return true;
+        }
+        
         return false;
     }
-
 }
