@@ -69,7 +69,7 @@ public class Game {
         return moves;
     }
 
-    public void setMoves(List<Move> moves) {
+    public void setMoves(ArrayList<Move> moves) {
         this.moves = moves;
     }
 
@@ -145,7 +145,7 @@ public class Game {
             Game game = new Game();
             game.setBoard(new Board(this.boardSize));
             game.setPlayers(this.players);
-            game.setMoves(new ArrayList<>());
+            game.setMoves(new ArrayList<Move>());
             game.setNextPlayerIndex(0);
             game.setGameStatus(GameStatus.IN_PROGRESS);
             game.setGameWinningStrategy(new OrderOneGameWiningStrategy(boardSize));

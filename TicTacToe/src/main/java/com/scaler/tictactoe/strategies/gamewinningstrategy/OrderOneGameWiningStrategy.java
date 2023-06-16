@@ -16,8 +16,8 @@ public class OrderOneGameWiningStrategy implements GameWinningStrategy {
 
     public OrderOneGameWiningStrategy(int boardSize) {
         for(int i=0; i<boardSize; i++) {
-            rowSymbolCounts.add(new HashMap<>());
-            colSymbolCounts.add(new HashMap<>());
+            rowSymbolCounts.add(new HashMap<Character, Integer>());
+            colSymbolCounts.add(new HashMap<Character, Integer>());
         }
     }
 

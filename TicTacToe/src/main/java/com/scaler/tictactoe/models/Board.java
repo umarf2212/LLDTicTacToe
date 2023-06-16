@@ -10,7 +10,7 @@ public class Board {
         this.board = new ArrayList<>();
 
         for (int i = 0; i < dimension; ++i) {
-            this.board.add(new ArrayList<>());
+            this.board.add(new ArrayList<Cell>());
             for (int j = 0; j < dimension; ++j) {
                 this.board.get(i).add(new Cell(i, j));
             }

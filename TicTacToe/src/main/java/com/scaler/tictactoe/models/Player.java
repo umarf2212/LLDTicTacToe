@@ -44,6 +44,7 @@ public class Player {
         int row = scanner.nextInt();
         System.out.println("Which column you want move on");
         int column = scanner.nextInt();
+        scanner.close();
         return new Move(this, new Cell(row, column));
     }
 
