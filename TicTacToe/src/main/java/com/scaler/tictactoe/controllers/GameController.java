@@ -8,7 +8,10 @@ import java.util.List;
 
 public class GameController {
     public Game createGame(int BoardSize, List<Player> players) {
-        return null;
+        Game.Builder builder = new Game.Builder();
+        builder.setBoard(BoardSize);
+        builder.setPlayers(players);
+        return builder.build();
     }
 
     public GameStatus getGameStatus(Game game) {

@@ -102,7 +102,6 @@ public class Game {
         board.getBoard().get(row).get(col).setPlayer(players.get(nextPlayerIndex));
 
         this.moves.add(move);
-
         if(gameWinningStrategy.checkWinner(board, players.get(nextPlayerIndex), move.getCell())) {
             this.gameStatus = GameStatus.ENDED;
             this.winner = players.get(nextPlayerIndex);
@@ -134,13 +133,13 @@ public class Game {
             return true;
         }
 
-        public Game build() throws Exception {
+        public Game build() {
 
-            try{
-                valid();
-            } catch (Exception e) {
-                throw new InvalidGameConstructorExcpetion(e.getMessage());
-            }
+            // try{
+            //     valid();
+            // } catch (Exception e) {
+            //     throw new InvalidGameConstructorExcpetion(e.getMessage());
+            // }
 
             Game game = new Game();
             game.setBoard(new Board(this.boardSize));
